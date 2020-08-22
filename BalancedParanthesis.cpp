@@ -45,3 +45,34 @@ public:
     }
 };
 
+// quite simple approach from the above solution
+
+class Solution {
+public:
+    
+    bool isValid(string s) {
+        stack<char> st;
+        if(s.size()==1) return false;
+        if(s.size()==0) return true;
+        for(char c:s){
+            if(c=='(') {
+                st.push(')');
+            }
+            else if(c=='{'){
+                st.push('}');
+            }
+            else if(c=='['){
+                st.push(']');
+            }
+          else{
+            if(st.empty() || (st.top()!=c)){
+                return false;
+            }
+                else{
+                    st.pop();
+                }
+            }
+    }
+   return st.size()==0;
+  }
+};
