@@ -3,7 +3,7 @@ public:
     int finalValueAfterOperations(vector<string>& operations) {
         int count=0;
         for(auto a:operations){
-            if(a=="--X" || a=="X--") count--;
+            if(a[1]=='-'|| a[1]=='-') count--;
             else count++;
         }
         return count;
