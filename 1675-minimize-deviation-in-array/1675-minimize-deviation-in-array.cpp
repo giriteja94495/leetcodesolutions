@@ -1,6 +1,7 @@
 class Solution {
 public:
     int minimumDeviation(vector<int>& nums) {
+        //not mine
     int res = INT_MAX, min_n = INT_MAX;
     priority_queue<int> pq;
     for (auto n : nums) {
