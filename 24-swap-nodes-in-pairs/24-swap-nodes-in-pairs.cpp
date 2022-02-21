@@ -20,19 +20,6 @@ public:
         return len;
     }
     ListNode* swapPairs(ListNode* head) {
-        // if(!head || head->next==nullptr) return head;
-        // int len=findLen(head);
-        // ListNode *ansNode=head->next;
-        // while(len && head->next && head->next->next){
-        //     ListNode *temp1=head;
-        //     ListNode *temp2=head->next;
-        //     ListNode *temp3=head->next->next;
-        //     temp2->next=temp1;
-        //     temp1->next=temp3;
-        //     len=len-2;
-        //     head=temp3;
-        // }
-        // return ansNode;
         if ((head == nullptr)||(head->next == nullptr))
             return head;
         ListNode* n = head->next;
