@@ -28,6 +28,14 @@ public:
         return false;
         
         
+        // set solution 
+        
+        unordered_set<int> set(nums.begin(),nums.end());
+        return !(nums.size()==set.size());
+        
+        
+        
+        
     }
     
 };
