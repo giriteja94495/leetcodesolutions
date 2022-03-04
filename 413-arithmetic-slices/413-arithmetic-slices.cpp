@@ -3,6 +3,9 @@ public:
     int numberOfArithmeticSlices(vector<int>& nums) {
         if(nums.size()<3) return 0;
         int count=0;
+        //usual way 
+        
+        
         // for(int i=1;i<nums.size()-1;i++){
         //     int diff1=nums[i]-nums[i-1];
         //     int j=i+1;
@@ -14,6 +17,8 @@ public:
         //         j++;
         //     }
         // }
+        
+        
         
         //dp way 
         
@@ -28,17 +33,7 @@ public:
             else{
                 diff1=(nums[i+1]-nums[i]);
             }
-            
-            
-        }
-        
-        
-        
-        
-        
-        return count;
-        
-        
-        
+        }   
+        return count;   
     }
 };
