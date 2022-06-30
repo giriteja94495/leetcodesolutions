@@ -58,8 +58,7 @@ public:
                         a=i;
                   b=mp[val];
                   break;
-                 }
-                
+                 }  
               }
         }
         return {a,b};
