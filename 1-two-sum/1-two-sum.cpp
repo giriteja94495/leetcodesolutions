@@ -22,73 +22,53 @@ public:
         // Binary search approach 
         
         
-        vector<pair<int,int>> v;
-        for(int i=0;i<nums.size();i++){
-            v.push_back(make_pair(nums[i],i));
-        }
-        sort(v.begin(),v.end());
-        
-        int i=0;
-        int j=nums.size()-1;
-        int a=0,b=0;
-        
-        while(i<j){
-            if(v[i].first + v[j].first == target){
-                a=v[i].second;
-                b=v[j].second;
-                break;
-            }
-            else if(v[i].first + v[j].first < target) i++;
-            else j--;
-        }
-        return {a,b};
-        
-        
-        
-        
-        
-        //map based approach
-        
-        
-        // unordered_map<int,int> mp ;
-        // vector<int> result;
-        // for(int i=0;i<nums.size();i++)
-        // {
-        //     int lol= target-nums[i];
-        //     if(mp.find(lol)!=mp.end()) {
-        //         result.push_back(mp[lol]);
-        //         result.push_back(i);
-        //     }
-        //     else mp[nums[i]]=i;
-        // }
-        // return result;
-
-        // Binary Search
-        
 //         vector<pair<int,int>> v;
 //         for(int i=0;i<nums.size();i++){
-//             v.push_back({nums[i],i});
+//             v.push_back(make_pair(nums[i],i));
 //         }
 //         sort(v.begin(),v.end());
         
-        
 //         int i=0;
-//         int j=v.size()-1;
-//         int idx1;
-//         int idx2;
+//         int j=nums.size()-1;
+//         int a=0,b=0;
         
 //         while(i<j){
-//             if(v[i].first+ v[j].first == target){
-//                 idx1=v[i].second;
-//                 idx2=v[j].second;
-//                 return {idx1,idx2};
-//             } 
-//             else if(v[i].first+ v[j].first < target){
-//                 i=i+1;
+//             if(v[i].first + v[j].first == target){
+//                 a=v[i].second;
+//                 b=v[j].second;
+//                 break;
 //             }
+//             else if(v[i].first + v[j].first < target) i++;
 //             else j--;
 //         }
-//         return {idx1,idx2};
+//         return {a,b};
+        
+    
+        //map based approach
+        
+        unordered_map<int,int> mp;
+        int a=0,b=0;
+        for(int i=0;i<nums.size();i++){
+            mp[nums[i]]=i;
+        }
+          for(int i=0;i<nums.size();i++){
+            int val=target-nums[i];
+              if(mp.find(val)!=mp.end()  ){
+                  if(mp[val]!=i){
+                        a=i;
+                  b=mp[val];
+                  break;
+                 }
+                
+              }
+        }
+        return {a,b};
+      
+        
+    
+        
+     
+
         
         
     }
