@@ -4,7 +4,7 @@ public:
         // recursion model - 0(2^n)- time complexity
         if(n==0 || n==1) return n;
         
-        return fib(n-1)+fib(n-2);
+        // return fib(n-1)+fib(n-2);
         
         
         // dp model 
