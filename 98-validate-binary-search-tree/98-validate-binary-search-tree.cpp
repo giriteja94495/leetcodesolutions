@@ -9,22 +9,18 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
 class Solution {
 public:
-    bool check(TreeNode *root,long mi, long ma){
+    bool validate(TreeNode* root, long left , long right){
         if(!root) return true;
-         
         
-        if(root->val <=mi || root->val >=ma) return false;
+        if(root->val <= left ||  root->val >= right) return false;
         
         
-        return check(root->left,mi,root->val) && check(root->right,root->val ,ma);
-        
+   return validate(root->left,left,root->val) && validate(root->right, root->val, right );
     }
-    
-    
     bool isValidBST(TreeNode* root) {
-         return check(root,LONG_MIN,LONG_MAX);
-        
+        return validate(root, LONG_MIN, LONG_MAX);
     }
 };
