@@ -2,8 +2,6 @@ class Solution {
 public:
     vector<vector<int>> generate(int numRows) {
         vector<vector<int>> ans;
-        
-       // if(numRows==1) return ans.push_back({1});
         ans.push_back({1});
         int k=0;
         numRows--;
