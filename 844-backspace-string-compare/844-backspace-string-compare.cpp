@@ -1,11 +1,16 @@
 class Solution {
 public:
-    string formString(string s){
-
+    string formGoodString(string s){
+        // we traverse thorugh the string and use # to remove all the chars of string
+        string ans ="" ;
+        // loop through the original string 
         for(int i=0;i<s.size();i++){
+            // if we encounter any backspace thqt is '#'
             if(s[i] == '#') {
-                 int j=i-1;
+                // we will just loop back and remove the char until we get a non backspace char 
+                int j=i-1;
                 while(j>=0){
+                    // if we find any backspace char, our work is done so we break from the loop
                     if(s[j]!='#'){
                         s[j]='#';
                         break;
@@ -14,24 +19,13 @@ public:
                 }
             }
         }
-        string lol = "";
-        for(int i=0;i<s.size();i++){
-            if(s[i]!='#') lol+=s[i];
-        }
-        return lol ;
+        // once we have updated the string with all the backspace actions, we form the result string by looping through the string 
+        for(char a:s) if(a!='#') ans+=a;
+        return ans ;
     }
     bool backspaceCompare(string s, string t) {
-        string s1= formString(s);
-        string s2 = formString(t);
-        // cout<<s1<<endl;
-        // cout<<s2<<endl;
-        // if(s1.size() != s2.size()) return false;
-        // else{
-        //     for(int i=0;i<s1.size() && i<s2.size();i++){
-        //         if(s1[i]!= s2[i]) return false;
-        //     }
-        //     return true;
-        // }
+        string s1= formGoodString(s);
+        string s2 = formGoodString(t);
         return s1==s2;
     }
 };
