@@ -7,9 +7,8 @@ public:
             mp[a]++;
         }
         for(int i:nums1){
-            if(mp[i]>0) {
+            if(mp[i]-->0) {
                 ans.push_back(i);
-               mp[i]--;
             } 
             
         }
