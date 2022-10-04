@@ -6,8 +6,8 @@ public:
             if(s[i] == '#') {
                  int j=i-1;
                 while(j>=0){
-                    if(s[j]!='#' && s[j]!='%'){
-                        s[j]='%';
+                    if(s[j]!='#'){
+                        s[j]='#';
                         break;
                     }
                     j--;
@@ -16,7 +16,7 @@ public:
         }
         string lol = "";
         for(int i=0;i<s.size();i++){
-            if(s[i]!='#' && s[i]!='%') lol+=s[i];
+            if(s[i]!='#') lol+=s[i];
         }
         return lol ;
     }
