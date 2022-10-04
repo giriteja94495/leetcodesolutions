@@ -24,8 +24,6 @@ public:
         return ans ;
     }
     bool backspaceCompare(string s, string t) {
-        string s1= formGoodString(s);
-        string s2 = formGoodString(t);
-        return s1==s2;
+        return formGoodString(s)==formGoodString(t);
     }
 };
