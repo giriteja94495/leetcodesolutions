@@ -34,12 +34,8 @@ public:
         int j = s.size()-1;
         int steps = (s.size()+1)/2;
         while(steps>0){
-            char temp = s[i];
-            s[i] = s[j];
-            s[j] = temp;
+            swap(s[i++],s[j--]);
             steps = steps -1;
-            i++;
-            j--;
         }
         
         
