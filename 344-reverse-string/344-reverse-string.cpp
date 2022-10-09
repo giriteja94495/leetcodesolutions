@@ -1,17 +1,17 @@
 class Solution {
 public:
     void reverseString(vector<char>& s) {
-//         vector<char> input;// O(n)
-//         int i; //O(1)
+        // vector<char> input;// O(n)
+        // int i; //O(1)
         
-//         /*
-//         O(n) - Time complexity
-//         O(n) - Space complexity 
-//         */
-//         for(int i=s.size()-1; i>=0;i--){
-//             input.push_back(s[i]);
-//         }
-//         s= input;
+        /*
+        O(n) - Time complexity
+        O(n) - Space complexity 
+        */
+        // for(int i=s.size()-1; i>=0;i--){
+        //     input.push_back(s[i]);
+        // }
+        // s= input;
         
         /*
         O(1) - space complexity
@@ -32,11 +32,23 @@ public:
         */
         int i=0;
         int j = s.size()-1;
-        int steps = (s.size()+1)/2;
-        while(steps>0){
+        // int steps = (s.size()+1)/2;
+        // while(steps>0){
+        //     swap(s[i++],s[j--]);
+        //     steps = steps -1;
+        // }
+        
+        while(i<=j){
             swap(s[i++],s[j--]);
-            steps = steps -1;
         }
+        
+        
+        /*
+        a 
+        pre increment operator ->  ++a    ->    firstly , it will increase the value then it worries about any thing 
+        post increment operator->. a++     ->    firstly , it worries about all the things , then it will increment.
+        */
+        
         
         
     }
