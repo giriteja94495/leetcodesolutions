@@ -1,41 +1,44 @@
+struct TrieNode{
+    TrieNode *links[26];
+    bool flag = false;
+    
+    bool containsKey(char ch){
+        return links[ch-'a']!=NULL;
+    }
+};
 class Trie {
-    private:
-     Trie *nodes[26];
-     bool isEnd = false;
+private:
+     TrieNode *root;
 public:
     Trie() {
-        for(int i=0;i<26;i++){
-            nodes[i] = NULL;
-        }
-        isEnd = false;
+        root = new TrieNode();
     }
     
     void insert(string word) {
-        Trie *node  = this;
-        for(auto a: word){
-            int index = a-'a';
-            if(!node->nodes[index]) node->nodes[index] = new Trie();
-             node = node->nodes[index];
+        TrieNode *node = root;
+        for(int i=0;i<word.size();i++){
+            if(!node->containsKey(word[i])){
+                node->links[word[i]-'a'] = new TrieNode();
+            }
+            node = node->links[word[i]-'a'];
         }
-        node->isEnd = true;
+        node->flag = true;
     }
     
     bool search(string word) {
-        Trie *node = this;
-        for(auto a: word){
-            int index = a-'a';
-            if(!node->nodes[index]) return false;
-            node = node->nodes[index];
+        TrieNode *node = root;
+        for(int i=0;i<word.size();i++){
+            if(!node->containsKey(word[i])) return false;
+                node = node->links[word[i]-'a'];
         }
-        return node->isEnd;
+        return (node->flag == true);
     }
     
     bool startsWith(string prefix) {
-         Trie *node = this;
-        for(auto a: prefix){
-            int index = a-'a';
-            if(!node->nodes[index]) return false;
-            node = node->nodes[index];
+        TrieNode *node = root;
+        for(int i=0;i<prefix.size();i++){
+            if(!node->containsKey(prefix[i])) return false;
+                node = node->links[prefix[i]-'a'];
         }
         return true;
     }
