@@ -14,15 +14,10 @@ public:
             int a = p1.size() ? p1.top() : maxPossible;
             int b = p2.size() ? p2.top() : maxPossible;
             
-            if(a<=b){
-                ans+=a;
-                p1.pop();
-            }
-            else{
-                ans+=b;
-                p2.pop();
-            }
+            ans += (a<=b?a:b);
             
+            a<=b ? p1.pop(): p2.pop();
+        
         }
         return ans;
     }
