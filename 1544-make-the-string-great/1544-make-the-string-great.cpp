@@ -2,16 +2,28 @@ class Solution {
 public:
     string makeGood(string s) {
         if(s.size()<=1) return s;
-          int n =0;
-         while (n != s.size()) {
-        n = s.size();
-        for(int i =0;i+1<s.size();i++){
-            if(s[i+1]-s[i] == 32 || s[i]-s[i+1]==32){
-                s= s.substr(0,i)+s.substr(i+2);
+        int n = s.size();
+        stack<char> st;
+        
+        for(int i =0;i<s.size();i++){
+          if(!st.empty() && abs(st.top() -s[i])==32){
+              st.pop();
+          }
+            else{
+                st.push(s[i]);
             }
         }
-         }
-        return s;
+        vector<char> ans(st.size());
+        int index = st.size()-1;
+        while(!st.empty()){
+            ans[index--] = st.top();
+            st.pop();
+        }
+        string val="";
+        for(auto a:ans){
+            val+=a;
+        }
+        return val;
         
     }
 };
