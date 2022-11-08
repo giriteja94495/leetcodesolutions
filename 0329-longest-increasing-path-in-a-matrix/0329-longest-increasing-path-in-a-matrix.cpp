@@ -3,6 +3,7 @@ public:
     vector<vector<int>> moves = {{-1,0},{1,0},{0,1},{0,-1}};
     
     vector<vector<int>> dp ;
+    // lol just coz i didnt use &matrix in below line , i got memory limit exceeded ...waah c++ bc
     int solve(vector<vector<int>> &matrix, int i , int j){
         
         if(dp[i][j]) return dp[i][j];
