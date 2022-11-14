@@ -16,6 +16,7 @@ public:
     //     }
     //      return  solve(matrix,1,1,m,n);
     // }
+    
       int uniquePaths(int m, int n) {
         vector<vector<int>> matrix(m,vector<int>(n));
         for(int i =0;i<m;i++){
@@ -27,7 +28,6 @@ public:
                 }
             }
         }
-          
-         return  matrix[m-1][n-1];
+        return  matrix[m-1][n-1];
     }
 };
